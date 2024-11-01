@@ -38,7 +38,7 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="flex flex-wrap">
+      <div className="flex bg-red-400 flex-wrap">
         <div className="container flex flex-col justify-center items-center gap-4">
           <h1 className="text-4xl font-bold">Unlimited movies, TV shows, and more</h1>
          
@@ -67,13 +67,15 @@ const Home = () => {
         {error ? (
           <p className="error">Error: {error}</p>
         ) : (
-          <ul className="grid grid-cols-4 col-span-4 space-y-4 "  >
+          <ul className="grid grid-cols-4 col-span-4 space-y-4  bg-black "  >
             {movies.map((item) => (
               <li key={item.imdbID}>
                 <div>
-                  <p>{item.Title}</p>
+                  <p className='font-extrabold text-red-600'>{item.Title}</p>
                   <img src={item.Poster} alt={item.Title} />
-                  <p>Type: {item.Type}</p>
+                  <p className=' text-white p-2' >Type: {item.Type}</p>
+                  <h3 className=' text-white p-2' > year : {item.Year}</h3>
+                  <button className='bg-red-500 mx-8 text-white p-2' >play now</button>
                 </div>
               </li>
             ))}

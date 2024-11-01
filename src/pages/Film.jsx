@@ -41,9 +41,11 @@ const Film = () => {
           {movies.map((item) => (
             <li key={item.imdbID}>
               <div>
-                <p>{item.Title}</p>
+                <p className='font-extrabold text-red-600' >{item.Title}</p>
                 <img src={item.Poster} alt={item.Title} />
-                <p>Type: {item.Type}</p>
+                <p className=' text-white p-2'  >Type: {item.Type}</p>
+                <h3 className=' text-white p-2' > year : {item.Year}</h3>
+                <button className='bg-red-500 mx-8 text-white p-2' >play now</button>
               </div>
             </li>
           ))}
