@@ -1,11 +1,13 @@
 
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const bat = useLoaderData();
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
+  const [query, setQuery] = useState(""); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (bat) {
@@ -15,9 +17,14 @@ const Home = () => {
     }
   }, [bat]);
 
+  const filmsearch = (e) => {
+    e.preventDefault();
+    navigate(`/Film?query=${query}`);
+  };
+
   return (
     <div>
-      <div className="bg-black flex flex-wrap justify-between p-8">
+   <div className="bg-black flex flex-wrap justify-between p-8">
         <h1 className="text-red-500 mx-3 text-4xl font-extrabold">omdb</h1>
         <div className="flex flex-wrap justify-between gap-4 mx-8">
           <p className="text-white font-extrabold">UNLIMITED TV SHOWS & MOVIES</p>
@@ -34,16 +41,18 @@ const Home = () => {
       <div className="flex flex-wrap">
         <div className="container flex flex-col justify-center items-center gap-4">
           <h1 className="text-4xl font-bold">Unlimited movies, TV shows, and more</h1>
-          <form className="w-56 flex flex-col gap-4">
-            <input
-              type="text"
-              placeholder="Enter movie, shows & ..."
-              className="border-2 border-gray-200 p-2 rounded-lg"
-            />
-            <button className="bg-blue-500 text-white p-2 rounded-lg">Search</button>
-          </form>
+         
         </div>
-
+        <form className="w-56 flex flex-col gap-4 mx-96 " onSubmit={filmsearch}>
+        <input
+          type="text"
+          placeholder="Enter movie, shows & ..."
+          className="border-2 border-gray-200 p-2 rounded-lg"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button className="bg-blue-500 text-white p-2 rounded-lg" type="submit">Search</button>
+      </form>
         <div className="my-8">
           <select>
             <option>TYPE</option>
@@ -52,7 +61,7 @@ const Home = () => {
           </select>
         </div>
       </div>
-
+     
       <div>
         
         {error ? (

@@ -1,14 +1,14 @@
 import { data } from "autoprefixer";
-import movieServices from "../services/movieServices";
+import filmservices from "../services/filmservices"
 
-const movieLoaders = async () => {
-  try {
-    const response = await movieServices.getHomeMovie();
+
+const filmLoader = async()=>{
+    try {
+    const response = await filmservices.searchfilm();
     return response.data.Search;  // Ensure to access data.Search
   } catch (error) {
     console.error("Failed to load movies", error);
     return null;
   }
-};
-
-export default movieLoaders;
+}
+export default filmLoader;
