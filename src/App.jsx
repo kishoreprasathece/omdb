@@ -5,6 +5,7 @@ import Film from './pages/Film';
 import filmLoader from './loaders/filmLoader';
 
 
+
 const App = () => {
   const router = createBrowserRouter([
     {
