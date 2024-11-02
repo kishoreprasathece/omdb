@@ -8,7 +8,7 @@ const Navbar = () => {
 const navigate = useNavigate();
  const search=(e)=>{
     e.preventDefault();
-  navigate(`/Film?query=${query}`);
+  navigate(`/Fim?query=${query}`);
  }
 
   return (
