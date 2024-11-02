@@ -1,28 +1,32 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './pages/Home';
-import movieLoaders from './loaders/movieLoader';
-import Film from './pages/Film';
-import filmLoader from './loaders/filmLoader';
+import React from 'react'
+import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom'
 
+import batLoaders from './loaders/batLoaders';
+import Layouts from './compponents/Layouts';
+import Home from './pages/Home';
 
 
 const App = () => {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-      loader: movieLoaders
-    },
 
-{
+const router = createBrowserRouter([
+  
+  
+  {
+path:"/",
+element:<Layouts/>,
+children:[
+  {path:'/', element:<Home/>,
+    loader: batLoaders
+  }
 
- path:"/Film" ,
- element:<Film/>,
-loader: filmLoader
+  
+]
 }
-  ]);
 
-  return <RouterProvider router={router} />;
-};
+
+]);
+
+  return <RouterProvider router={router}/>;
+}
 
 export default App;
