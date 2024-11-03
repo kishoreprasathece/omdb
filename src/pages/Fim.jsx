@@ -1,18 +1,24 @@
 
 import React from 'react';
-import { useLoaderData, useSearchParams } from 'react-router-dom';
+import { useLoaderData, useNavigate, useSearchParams } from 'react-router-dom';
 
 const Fim = () => {
   const films = useLoaderData();  // This gives you the movie data directly
   const [search] = useSearchParams();
   const query = search.get("query");
+ const navigate = useNavigate();
+
+const nextpage=(imdbID)=>{
+  navigate(`/fimdetail/${imdbID}`);
+
+}
 
   return (
     <div>
       {films ? (
         <ul className="grid grid-cols-4 col-span-4 space-y-4 bg-black">
           {films.map((item) => (
-            <li key={item.imdbID}>
+            <li key={item.imdbID}  onClick={()=>nextpage(item.imdbID)} >
               <div>
                 <p className='font-extrabold text-red-600'>{item.Title}</p>
                 <img src={item.Poster} alt={item.Title} />

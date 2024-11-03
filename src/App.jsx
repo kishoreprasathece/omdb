@@ -6,6 +6,8 @@ import Layouts from './compponents/Layouts';
 import Home from './pages/Home';
 import filmLoaders from './loaders/filmLoaders';
 import Fim from './pages/Fim';
+import Fimdetail from './pages/Fimdetail';
+import filmId from './loaders/filmId';
 
 
 const App = () => {
@@ -24,6 +26,11 @@ children:[
    path:"Fim/",
    element:<Fim/>,
    loader: filmLoaders
+  },
+  {
+    path:"/Fimdetail/:imdbID",
+    element:<Fimdetail/>,
+    loader:filmId
   }
 
   
