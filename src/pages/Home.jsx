@@ -1,12 +1,13 @@
 
 import React, { useEffect, useState } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, useNavigate } from 'react-router-dom'
 
 const Home = () => {
 
   const [movie , setMovie] = useState([])
   const [error, setError] = useState(null)
   const bat = useLoaderData();
+  const navigate = useNavigate();
 
 useEffect(()=>{
   if (bat) {
@@ -18,6 +19,12 @@ useEffect(()=>{
 
 },[bat])
 
+const nextpage=(imdbID)=>{
+  navigate(`/fimdetail/${imdbID}`);
+
+}
+
+
   return (
 
 <div>
@@ -27,9 +34,9 @@ useEffect(()=>{
         {error ? (
           <p className="error">Error: {error}</p>
         ) : (
-          <ul className="grid grid-cols-4 col-span-4 space-y-4  bg-black "  >
+          <ul className="grid grid-cols-4 col-span-4 space-y-4 p-4 bg-black "  >
             {movie.map((item) => (
-              <li key={item.imdbID}>
+              <li key={item.imdbID} onClick={()=>nextpage(item.imdbID)} >
                 <div>
                   <p className='font-extrabold text-red-600'>{item.Title}</p>
                   <img src={item.Poster} alt={item.Title} />
