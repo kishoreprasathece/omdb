@@ -50,4 +50,4 @@ const Fimdetail = () => {
   )
 }
 
-export default Fimdetail
+export default Fimdetail;

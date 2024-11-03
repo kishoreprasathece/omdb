@@ -8,6 +8,7 @@ import filmLoaders from './loaders/filmLoaders';
 import Fim from './pages/Fim';
 import Fimdetail from './pages/Fimdetail';
 import filmId from './loaders/filmId';
+import Fav from './pages/Fav';
 
 
 const App = () => {
@@ -31,6 +32,12 @@ children:[
     path:"/Fimdetail/:imdbID",
     element:<Fimdetail/>,
     loader:filmId
+  },
+  {
+ path:"/Fav/:imdbID",
+ element:<Fav/>,
+ loader:filmId
+
   }
 
   

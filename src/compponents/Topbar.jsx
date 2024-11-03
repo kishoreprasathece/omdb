@@ -10,6 +10,7 @@ const Topbar = () => {
     <Link to="/"></Link>
     <Link to="Fim/"></Link>
     <Link to="Fimdetail/"></Link>
+    <link to="Fav/"></link>
 </li>
 
 </ul>
