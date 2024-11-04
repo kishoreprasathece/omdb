@@ -40,4 +40,4 @@ const Fav = () => {
   );
 };
 
-export default Fav;
+export default Fav;import React from "react";

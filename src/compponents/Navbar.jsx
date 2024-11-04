@@ -63,7 +63,8 @@ const Navbar = () => {
           </select>
         </div>
         <div>
-          <h1 onClick={favorite}>Fav..</h1>
+        <img className='w-10' onClick={favorite}  src="image/heart.png" />
+          <h1 >Favorite Movies</h1>
         </div>
       </div>
     </div>
