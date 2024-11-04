@@ -1,4 +1,5 @@
-
+// Fav.js
+import React from "react";
 import { useLoaderData } from "react-router-dom";
 
 const Fav = () => {
@@ -40,4 +41,5 @@ const Fav = () => {
   );
 };
 
-export default Fav;import React from "react";
+export default Fav;
+

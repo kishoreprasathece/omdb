@@ -34,9 +34,9 @@ children:[
     loader:filmId
   },
   {
- path:"/Fav/:imdbID",
+ path:"Fav/",
  element:<Fav/>,
- loader:filmId
+ loader:batLoaders
 
   }
 

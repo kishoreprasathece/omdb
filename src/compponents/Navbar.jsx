@@ -1,6 +1,6 @@
-
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLoaderData } from 'react-router-dom';
+// Navbar.js
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [query, setQuery] = useState('');
@@ -17,17 +17,14 @@ const Navbar = () => {
     navigate('/');
   };
 
-  const favorite = (imdbID) => {
-    navigate(`/fav/${imdbID}`);
+  const favorite = () => {
+    navigate('/fav'); // Navigates to the favorites list directly
   };
 
   return (
     <div>
       <div className="bg-black flex justify-between p-8">
-        <h1
-          className="text-red-500 mx-3 text-4xl font-extrabold cursor-pointer"
-          onClick={homepage}
-        >
+        <h1 className="text-red-500 mx-3 text-4xl font-extrabold cursor-pointer" onClick={homepage}>
           omdb
         </h1>
         <div className="flex gap-4 mx-8">
@@ -63,8 +60,8 @@ const Navbar = () => {
           </select>
         </div>
         <div>
-        <img className='w-10' onClick={favorite}  src="image/heart.png" />
-          <h1 >Favorite Movies</h1>
+          <img className="w-10 cursor-pointer" onClick={favorite} src="image/heart.png" alt="Favorites" />
+          <h1>Favorite Movies</h1>
         </div>
       </div>
     </div>
@@ -72,3 +69,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

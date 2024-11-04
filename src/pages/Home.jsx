@@ -1,3 +1,4 @@
+// Home.js
 import React, { useState, useEffect } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
@@ -60,3 +61,4 @@ const Home = () => {
 };
 
 export default Home;
+
