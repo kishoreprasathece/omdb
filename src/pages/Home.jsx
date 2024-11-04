@@ -55,10 +55,10 @@ useEffect(() => {
                 <h3 className="text-white mx-8 p-2">Year: {item.Year}</h3>
                 <button className="bg-red-500 mx-8 text-white p-2">Play Now</button>
                 <button
-                  className="bg-red-500 mx-8 text-white p-2"
+                  className="bg-pink-400 rounded-2xl mx-8 text-white p-2"
                   onClick={(e) => addfav(e, item)}
                 >
-                  FAV
+                  ADD AS FAV
                 </button>
               </div>
             </li>
