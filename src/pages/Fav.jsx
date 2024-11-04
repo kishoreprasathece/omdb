@@ -1,14 +1,19 @@
-// Fav.js
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { parse } from "postcss";
+
+import React, { useEffect, useState } from "react";
 
 const Fav = () => {
-  const items = useLoaderData(); // Expecting an array of favorite movies
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavorites(savedFavorites);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 flex flex-col items-center justify-center px-4">
-      {items.length > 0 ? (
-        items.map(item => (
+      {favorites.length > 0 ? (
+        favorites.map(item => (
           <div key={item.imdbID} className="max-w-3xl w-full bg-black rounded-lg shadow-lg p-6 text-white mb-4">
             <h1 className="text-4xl font-bold text-red-600 mb-4 text-center">{item.Title}</h1>
             <div className="flex flex-col md:flex-row items-center md:items-start">
@@ -42,4 +47,3 @@ const Fav = () => {
 };
 
 export default Fav;
-

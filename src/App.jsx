@@ -36,7 +36,7 @@ children:[
   {
  path:"Fav/",
  element:<Fav/>,
- loader:batLoaders
+
 
   }
 

@@ -1,4 +1,5 @@
 // Home.js
+import { stringify, parse } from "postcss";
 import React, { useState, useEffect } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
@@ -21,15 +22,23 @@ const Home = () => {
     navigate(`/fimdetail/${imdbID}`);
   };
 
-  const addfav = (e, item) => {
-    e.stopPropagation();
-    const existmovie = favt.find((favts) => favts.imdbID === item.imdbID);
-    if (existmovie) {
-      alert("Item already added to favorites");
-      return;
-    }
-    setFavt([...favt, item]);
-  };
+const addfav = (e, item) => {
+  e.stopPropagation();
+  const existingFav = favt.find((favItem) => favItem.imdbID === item.imdbID);
+  if (existingFav) {
+    alert("Item already added to favorites");
+    return;
+  }
+  const updatedFav = [...favt, item];
+  setFavt(updatedFav);
+  localStorage.setItem('favorites', JSON.stringify(updatedFav));
+};
+
+useEffect(() => {
+  const savedFavorites = JSON.parse(localStorage.getItem('favorites'));
+  if (savedFavorites) setFavt(savedFavorites);
+}, []);
+
 
   return (
     <div>
